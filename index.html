@@ -1,65 +1,72 @@
-<!DOCTYPE html>
+
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Food Delivery App</title>
-  <link rel="stylesheet" href="style.css" />
+  <meta charset="UTF-8">
+  <title>Login Page</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f2f2f2;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    .login-container {
+      background: white;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      width: 300px;
+    }
+    .login-container h2 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    .login-container input {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+    .login-container button {
+      width: 100%;
+      padding: 10px;
+      background-color: #4285f4;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .login-container button:hover {
+      background-color: #357ae8;
+    }
+  </style>
 </head>
 <body>
-  <header>
-    <h1>Food Delivery App</h1>
-    <nav>
-      <ul>
-        <li><a href="#" class="active">Home</a></li>
-        <li><a href="#">Orders</a></li>
-        <li><a href="#">Profile</a></li>
-      </ul>
-    </nav>
-  </header>
 
-  <main>
-    <section id="food-items" class="food-items">
-      <!-- Food Item Card -->
-      <div class="food-card">
-        <img src="images/pizza.jpg" alt="Pizza Margherita" />
-        <div class="food-info">
-          <h2>Pizza Margherita</h2>
-          <p>$8.99</p>
-          <button class="add-btn" onclick="addToCart('Pizza Margherita', 8.99)">Add</button>
-        </div>
-      </div>
+<div class="login-container">
+  <h2>Login</h2>
+  <input type="text" id="username" placeholder="Username" required />
+  <input type="password" id="password" placeholder="Password" required />
+  <button onclick="saveUserData()">Login</button>
+</div>
 
-      <div class="food-card">
-        <img src="images/burger.jpg" alt="Veg Burger" />
-        <div class="food-info">
-          <h2>Veg Burger</h2>
-          <p>$5.49</p>
-          <button class="add-btn" onclick="addToCart('Veg Burger', 5.49)">Add</button>
-        </div>
-      </div>
+<script>
+  function saveUserData() {
+    const username = document.getElementById("username").value;
+    const password = document.getElementById("password").value;
 
-      <div class="food-card">
-        <img src="images/pasta.jpg" alt="Pasta Alfredo" />
-        <div class="food-info">
-          <h2>Pasta Alfredo</h2>
-          <p>$6.99</p>
-          <button class="add-btn" onclick="addToCart('Pasta Alfredo', 6.99)">Add</button>
-        </div>
-      </div>
-    </section>
-  </main>
+    if (username && password) {
+      // Simulate saving user data locally (NOT secure!)
+      localStorage.setItem("user", JSON.stringify({ username, password }));
+      alert("User data saved (locally).");
+    } else {
+      alert("Please enter username and password.");
+    }
+  }
+</script>
 
-  <!-- Sidebar Cart -->
-  <aside id="cart" class="cart">
-    <h2>Your Cart</h2>
-    <ul id="cart-list">
-      <!-- List of cart items will be added here via JS -->
-    </ul>
-    <p>Total: $<span id="total">0.00</span></p>
-    <button onclick="checkout()">Checkout</button>
-  </aside>
-
-  <script src="main.js"></script>
 </body>
 </html>
