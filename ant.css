@@ -1,0 +1,31 @@
+body {
+  margin: 0;
+  height: 100vh;
+  background-color: #f5f5dc;
+  overflow: hidden;
+}
+
+.ant {
+  width: 40px;
+  height: 40px;
+  background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/1/14/Ant_icon.png/48px-Ant_icon.png');
+  background-size: cover;
+  position: absolute;
+  top: 50%;
+  left: -50px;
+  animation: moveAnt 10s linear infinite;
+}
+
+@keyframes moveAnt {
+  0% {
+    left: -50px;
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(10deg);
+  }
+  100% {
+    left: 100%;
+    transform: rotate(0deg);
+  }
+}
